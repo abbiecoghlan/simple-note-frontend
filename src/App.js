@@ -6,8 +6,10 @@ import { useEffect } from 'react';
 import { login } from './actions/actionIndex.js'
 import LoginForm from './components/LoginForm'
 import NavBar from './components/NavBar'
-import NoteForm from './components/NoteForm'
+import NoteShow from './components/NoteShow'
 import { connect } from 'react-redux';
+import EditNoteForm from './components/EditNoteForm'
+import NewNoteForm from './components/NewNoteForm'
 import Note from './components/Note'
 import NotesContainer from './components/NotesContainer';
 import { useHistory } from "react-router";
@@ -19,10 +21,7 @@ const App = ({user}) => {
 
 const history = useHistory()
 
-// check if a user is logged in upon rendering???
-  useEffect(() => {
-    
-      debugger
+  useEffect(() => {   
       !user && history.location.pathname !== "/signup" ? history.push('./login') : console.log(user)
   }, [])
 
@@ -32,14 +31,12 @@ const history = useHistory()
        <div className="ui container" >
       
         <Switch>
-        <Route history={history} exact path="/login" component={LoginForm}
-        
-        
-        />
+        <Route history={history} exact path="/login" component={LoginForm}/>
         <Route  exact path="/signup" component={SignUpForm} />
-          <Route  exact path="/notes/:id" component={Note} />
-          <Route  exact path="/notes/new" component={NoteForm} />
-          <Route  exact path="/notes/edit/:id" component={NoteForm} />
+        <Route  exact path="/notes/new" component={NewNoteForm} />
+          <Route  exact path="/notes/:id" component={NoteShow} />
+
+          <Route  exact path="/notes/edit/:id" component={EditNoteForm} />
           <Route  exact path="/notes" component={NotesContainer} />
         
 
