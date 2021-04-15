@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
+// import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { Button, Form, Segment, Grid, Header, Message, Image } from 'semantic-ui-react'
+import { Button, Form, Segment, Grid, Header, Message } from 'semantic-ui-react'
 import { useState } from 'react'
 import { login } from '../actions/actionIndex'
 import {Redirect, useHistory } from "react-router-dom"
@@ -8,9 +8,9 @@ import {Redirect, useHistory } from "react-router-dom"
    
 const LoginForm = ({ user,  login, history }) => {
 
-     useEffect(() => {
-        !user ? history.push('/login') : history.push("/notes")
-    }, [])
+    //  useEffect(() => {
+    //     !user ? history.push('/login') : history.push("/notes")
+    // }, [])
   
 
 

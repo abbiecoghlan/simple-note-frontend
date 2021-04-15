@@ -1,9 +1,8 @@
-import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Button, Form, Segment, Grid, Header, Message, Image } from 'semantic-ui-react'
 import { useState } from 'react'
 import { createUser } from '../actions/actionIndex'
-import {Redirect, useHistory } from "react-router-dom"
+import { Redirect } from "react-router-dom"
 
    
 const SignUpForm = ({ user,  createUser, history }) => {
@@ -42,10 +41,12 @@ const SignUpForm = ({ user,  createUser, history }) => {
           </Header>
           <Form onSubmit={(e) => handleSubmit(e)} inverted size='large'>
             <Segment inverted stacked>
+              
               <Form.Input fluid icon='user' iconPosition='left' placeholder='Username'                 
                 name="username"
                 value={form.username}
                 onChange={(e) => handleChange(e)}/>
+              
               <Form.Input
                 fluid
                 icon='lock'
@@ -62,9 +63,6 @@ const SignUpForm = ({ user,  createUser, history }) => {
               </Button>
             </Segment>
           </Form>
-          <Message>
-           
-          </Message>
         </Grid.Column>
       </Grid>
 

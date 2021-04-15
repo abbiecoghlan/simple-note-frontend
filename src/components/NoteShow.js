@@ -5,7 +5,6 @@ import NavBar from './NavBar';
 import { useState } from 'react'
 import { Link } from 'react-router-dom';
 import { removeNote } from '../actions/actionIndex'
-import activeNoteReducer from '../reducers/activeNote';
 
 
 const NoteShow = ({activeNote, removeNote, history}) => {
@@ -13,8 +12,8 @@ const NoteShow = ({activeNote, removeNote, history}) => {
 
     const [form, setForm] = useState({title:"", content:"", archived: false, })
   
+    //todo: clean up alert 
     const handleDelete = (e) => {
-      //dispatch action to delete from backend and the update front end 
       console.log("you'd like to delete")
       const confirm = window.confirm("Are you sure you want to delete this note?")
       if (confirm) {

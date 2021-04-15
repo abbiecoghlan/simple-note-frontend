@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Button, Card, Form, Segment, Input, Select, TextArea } from 'semantic-ui-react'
+import { Button, Form, Input, TextArea } from 'semantic-ui-react'
 import NavBar from './NavBar';
 import { useState } from 'react'
 import { editNote } from '../actions/actionIndex'

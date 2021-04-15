@@ -1,15 +1,11 @@
 import './App.css';
-import React, { useState } from 'react'
 import { Switch, Route, Redirect } from 'react-router-dom'
 import { useEffect } from 'react';
-import { login } from './actions/actionIndex.js'
 import LoginForm from './components/LoginForm'
-import NavBar from './components/NavBar'
 import NoteShow from './components/NoteShow'
 import { connect } from 'react-redux';
 import EditNoteForm from './components/EditNoteForm'
 import NewNoteForm from './components/NewNoteForm'
-import Note from './components/Note'
 import NotesContainer from './components/NotesContainer';
 import { useHistory } from "react-router";
 import SignUpForm from "./components/SignUpForm"
@@ -20,8 +16,11 @@ const App = ({user}) => {
 
 const history = useHistory()
 
-  useEffect(() => {   
-      !user && history.location.pathname !== "/signup" ? history.push('./login') : console.log(user)
+  useEffect(() => {
+    if (!user && history.location.pathname !== "/signup"){
+      history.push('./login')
+    }  
+
   }, [])
 
 

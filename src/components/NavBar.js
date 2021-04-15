@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { BrowserRouter, Link } from 'react-router-dom';
 import { Input, Menu } from 'semantic-ui-react'
-import NotesContainer from './NotesContainer';
+// import NotesContainer from './NotesContainer';
 import { useHistory } from "react-router";
 import { useState } from "react";
 import { searchByTerm } from '../actions/actionIndex'
