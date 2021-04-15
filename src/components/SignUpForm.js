@@ -63,7 +63,7 @@ const SignUpForm = ({ user,  createUser, history }) => {
             </Segment>
           </Form>
           <Message>
-            You ready to use this stupid fucking app?
+           
           </Message>
         </Grid.Column>
       </Grid>

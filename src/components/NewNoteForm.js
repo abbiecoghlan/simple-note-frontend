@@ -4,7 +4,7 @@ import { Button, Card, Form, Segment , Input, TextArea } from 'semantic-ui-react
 import NavBar from './NavBar';
 import { useState } from 'react'
 import activeNoteReducer from '../reducers/activeNote';
-import { newNote } from '../actions/actionIndex'
+      
 
 
 const NewNoteForm = ({user, activeNote, history, newNote}) => {
