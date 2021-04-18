@@ -23,8 +23,8 @@ export const createUser = (user) => {
                 const notes = data.user.notes
                 dispatch({type:"LOGIN_USER", currentUser})
                 dispatch({type:"FETCH_NOTES", notes})
+                localStorage.setItem("token", data.user.jwt)
                 history.push('/notes')               
-                // localStorage.setItem("token", data.user.jwt)
                 }
             })
 
@@ -56,9 +56,7 @@ export const login = (user) => {
                 const notes = data.user.notes
                 dispatch({type:"LOGIN_USER", currentUser})
                 dispatch({type:"FETCH_NOTES", notes})
-                history.push('/notes')
-
-                
+                history.push('/notes')               
 
                 // localStorage.setItem("token", data.user.jwt)
                 }
@@ -66,6 +64,7 @@ export const login = (user) => {
 
     }
 }
+
 
 export const searchByTerm = (term) => {
     return {type: "FILTER_BY_TERM", term: term}
@@ -136,9 +135,14 @@ export const removeNote = (id) => {
         }
     }
 
-export const viewNote = (id) => {
 
+export const logOut = () => {
+    return { type: "LOGOUT_USER"};
     }
+
+// export const viewNote = (id) => {
+
+//     }
 
 
 

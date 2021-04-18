@@ -4,6 +4,7 @@ const userReducer = (state = false, action) => {
             return action.currentUser
         case "LOGOUT_USER":
             console.log("LOGOUT USER")
+            debugger
             return false
         default:
             return state;

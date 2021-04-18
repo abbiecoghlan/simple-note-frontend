@@ -5,9 +5,9 @@ import { Input, Menu } from 'semantic-ui-react'
 // import NotesContainer from './NotesContainer';
 import { useHistory } from "react-router";
 import { useState } from "react";
-import { searchByTerm } from '../actions/actionIndex'
+import { searchByTerm, logOut } from '../actions/actionIndex'
 
-const NavBar = ({user, filter, searchByTerm}) => {
+const NavBar = ({user, filter, searchByTerm, logOut}) => {
     
     const history = useHistory()
     const [searchInput, setSearchInput] = useState("")
@@ -26,7 +26,14 @@ const NavBar = ({user, filter, searchByTerm}) => {
 
     const handleLogOut = (e) => {
         //update state to remove user
+
         // redirect to login page
+        console.log(user)
+        debugger
+        logOut()
+        console.log(user)
+        history.push('/login')
+      
     }
 
     return (
@@ -50,7 +57,7 @@ const NavBar = ({user, filter, searchByTerm}) => {
           </Menu.Item>
 
           <Link to="/login">
-          <Menu.Item
+          <Menu.Item onClick={(e) => handleLogOut(e)}
             name='logout'
           />
            </Link>
@@ -72,4 +79,4 @@ const mapStateToProps = (state) => {
   
 
 
-export default connect(mapStateToProps, { searchByTerm })(NavBar)
+export default connect(mapStateToProps, { searchByTerm, logOut })(NavBar)
