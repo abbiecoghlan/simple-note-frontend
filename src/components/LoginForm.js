@@ -44,6 +44,9 @@ const LoginForm = ({ user,  login, history }) => {
         user ? <Redirect to='/notes' /> :
         <Grid  textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
         <Grid.Column style={{ maxWidth: 450 }}>
+        <Header as='h1' color='violet' textAlign='center'>
+             SIMPLE NOTE
+          </Header>
           <Header as='h2' color='violet' textAlign='center'>
              Log-in to your account
           </Header>
@@ -69,8 +72,7 @@ const LoginForm = ({ user,  login, history }) => {
               </Button>
             </Segment>
           </Form>
-          <Message>
-              
+          <Message>              
             New to us? <a href='./signup'>Sign Up</a>
           </Message>
         </Grid.Column>

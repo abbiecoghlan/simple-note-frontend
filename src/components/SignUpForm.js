@@ -36,6 +36,9 @@ const SignUpForm = ({ user,  createUser, history }) => {
         user ? <Redirect to='/notes' /> :
         <Grid  textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
         <Grid.Column style={{ maxWidth: 450 }}>
+        <Header as='h1' color='pink' textAlign='center'>
+             SIMPLE NOTE
+          </Header>
           <Header as='h2' color='pink' textAlign='center'>
              Create a new account
           </Header>
@@ -63,6 +66,9 @@ const SignUpForm = ({ user,  createUser, history }) => {
               </Button>
             </Segment>
           </Form>
+          <Message>              
+            Already have an account? <a href='./login'>Login.</a>
+          </Message>
         </Grid.Column>
       </Grid>
 
