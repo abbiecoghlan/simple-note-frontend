@@ -12,7 +12,6 @@ const SignUpForm = ({ user,  createUser, history }) => {
     const [form, setForm] = useState({username:"", password:""})
 
     const handleChange = (e) => {
-        console.log(form)
         setForm({
             ...form,
             [e.target.name]: e.target.value
@@ -23,7 +22,6 @@ const SignUpForm = ({ user,  createUser, history }) => {
     const handleSubmit = (e) => {
         e.preventDefault()
         createUser({user: {...form}})
-
         setForm({
             username: "",
             password: ""

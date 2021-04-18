@@ -20,15 +20,8 @@ const NoteShow = ({activeNote, removeNote, history}) => {
         removeNote(activeNote.id)
         history.push("/notes")
       }
-      else {
-        console.log("no")
-      }
     }
-    const handleEdit = (e) => {
-            
-            console.log("you'd like to edit")
-      
-    }
+   
 
     
 
@@ -47,7 +40,7 @@ const NoteShow = ({activeNote, removeNote, history}) => {
       </Card.Content>
       <Card.Content extra>
         <Link to={`/notes/edit/${activeNote.id}`}>       
-          <Button onClick={(e) => handleEdit(e)} basic color='violet'>
+          <Button basic color='violet'>
             Edit Note
           </Button>
           </Link>

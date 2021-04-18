@@ -3,8 +3,6 @@ const userReducer = (state = false, action) => {
         case "LOGIN_USER":
             return action.currentUser
         case "LOGOUT_USER":
-            console.log("LOGOUT USER")
-            debugger
             return false
         default:
             return state;

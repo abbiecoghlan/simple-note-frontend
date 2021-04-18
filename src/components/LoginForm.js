@@ -28,7 +28,6 @@ const LoginForm = ({ user,  login, history }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log("form")
         login({user: {...form}})
 
         setForm({

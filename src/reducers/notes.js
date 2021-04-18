@@ -2,9 +2,8 @@ const notesReducer = (state = [], action) => {
     switch (action.type) {
         case "FETCH_NOTES":
             return action.notes;
-            case "ADD_NOTE":
-                return [...state, action.note];
-
+        case "ADD_NOTE":
+            return [...state, action.note];
         case "UPDATE_NOTES":
             return state.map(note => {
             if (note.id === action.note.id){
