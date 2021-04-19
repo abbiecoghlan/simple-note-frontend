@@ -1,7 +1,6 @@
 # Simple Note
 A clean and simple, full CRUD notes app that allows users to create and manage text-based notes. 
 
-#### About
 * Rails API backend 
 * React frontend 
 * Redux for global state management 
