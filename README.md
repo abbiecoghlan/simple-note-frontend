@@ -1,9 +1,7 @@
 # Simple Note
 
-## Welcome to Simple Note!
-
 ### Simple note is a clean and simple, full CRUD notes app that allows users to create and manage text-based notes. 
-♦ Rails API backend ♦︎ React frontend ♦︎ Redux for global state management ♦︎ Semantic React UI for styling
+Rails API backend ♦︎ React frontend ♦︎ Redux for global state management ♦︎ Semantic React UI for styling
 
 
 ### Instructions for use
