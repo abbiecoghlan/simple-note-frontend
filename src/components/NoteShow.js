@@ -14,7 +14,6 @@ const NoteShow = ({activeNote, removeNote, history}) => {
   
     //todo: clean up alert 
     const handleDelete = (e) => {
-      console.log("you'd like to delete")
       const confirm = window.confirm("Are you sure you want to delete this note?")
       if (confirm) {
         removeNote(activeNote.id)
@@ -22,37 +21,27 @@ const NoteShow = ({activeNote, removeNote, history}) => {
       }
     }
    
-
-    
-
-
     return (
         <>
         <NavBar></NavBar>
         <Segment inverted>
-              <Card inverted fluid color={'violet'}>
-      <Card.Content>
-        <Card.Header>{activeNote.title}</Card.Header>
-        {/* <Card.Meta>Friends of Elliot</Card.Meta> */}
-        <Card.Description>
-        {activeNote.content} <strong></strong>
-        </Card.Description>
-      </Card.Content>
-      <Card.Content extra>
-        <Link to={`/notes/edit/${activeNote.id}`}>       
-          <Button basic color='violet'>
-            Edit Note
-          </Button>
-          </Link>
-
-          <Button onClick={(e) => handleDelete(e)} basic color='violet'>
-            Delete Note
-          </Button>
-
-      </Card.Content>
-      </Card>
-              </Segment>
-    
+          <Card inverted fluid color={'violet'}>
+            <Card.Content>
+              <Card.Header>{activeNote.title}</Card.Header>
+              <Card.Description> {activeNote.content} <strong></strong></Card.Description>
+            </Card.Content>
+            <Card.Content extra>
+              <Link to={`/notes/edit/${activeNote.id}`}>       
+              <Button basic color='violet'>
+                Edit Note
+              </Button>
+              </Link>
+              <Button onClick={(e) => handleDelete(e)} basic color='violet'>
+                Delete Note
+              </Button>
+            </Card.Content>
+          </Card>
+        </Segment>
         </>
     )
 }

@@ -16,33 +16,30 @@ const Note = ({note, setNote}) => {
     return (
         <>
         <Card  color={'violet'}>
-      <Card.Content>
-        <Card.Header>{note.title}</Card.Header>
-        <Card.Description>
-          {note.content} 
-        </Card.Description>
-      </Card.Content>
-      <Card.Content extra>
-        <Link to={`/notes/${note.id}`}>
-          <Button onClick={(e) => handleClick(e)} basic color='violet'>
+          <Card.Content>
+            <Card.Header>{note.title}</Card.Header>
+            <Card.Description>
+            {note.content} 
+            </Card.Description>
+          </Card.Content>
+          <Card.Content extra>
+            <Link to={`/notes/${note.id}`}>
+            <Button onClick={(e) => handleClick(e)} basic color='violet'>
             View Note
-          </Button>
-    </Link>
-
-      </Card.Content>
-      </Card>
+            </Button>
+            </Link>
+          </Card.Content>
+        </Card>
         </>
     )
 }
 
 const mapStateToProps = (state) => {
     return {
-      activeNote: state.activeNote
-    
+      activeNote: state.activeNote 
      }
   }
   
-
 
 export default connect(mapStateToProps, { setNote })(Note)
 

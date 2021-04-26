@@ -40,10 +40,9 @@ const mapStateToProps = (state) => {
       user: state.user,
       notes: state.notes.filter(note => {
         return   (note.title.includes(state.filter) || note.content.includes(state.filter))
-    })
-     
-     }
-  } 
+      }) 
+    }
+  }
 
   // export default connect(mapStateToProps, { removeNote, viewNote, editNote })(NotesContainer)
 export default connect(mapStateToProps)(NotesContainer)
