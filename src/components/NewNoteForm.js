@@ -9,7 +9,6 @@ import { newNote } from '../actions/actionIndex'
 
 const NewNoteForm = ({user, activeNote, history, newNote}) => {
 
-
     const [form, setForm] = useState({title:"", content:"", archived: false, user_id: user.id})
 
     const handleChange = (e) => {
@@ -17,7 +16,6 @@ const NewNoteForm = ({user, activeNote, history, newNote}) => {
             ...form,            
             [e.target.name]: e.target.value
         })
-        console.log(form)
     }
 
     const handleSubmit = (e) => {
@@ -28,7 +26,6 @@ const NewNoteForm = ({user, activeNote, history, newNote}) => {
             ...form
         })
         history.push(`/notes/`)
-
     } 
 
 
@@ -44,10 +41,9 @@ const NewNoteForm = ({user, activeNote, history, newNote}) => {
                 label='Title'
                 placeholder="A new title"
                 value={form.title}
-                onChange={(e) => handleChange(e)}
-            />
-
+                onChange={(e) => handleChange(e)}/>
             </Form.Group>
+
             <Form.Field
             id='form-textarea-control-opinion'
             control={TextArea}
@@ -57,13 +53,13 @@ const NewNoteForm = ({user, activeNote, history, newNote}) => {
             value={form.content}
             onChange={(e) => handleChange(e)}
             />
+            
             <Form.Field
             id='form-button-control-public'
             control={Button}
             content='Save Changes'
             />
         </Form>
-
         </>
     )
 

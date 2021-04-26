@@ -24,8 +24,6 @@ const LoginForm = ({ user,  login, history }) => {
         })
     }
 
-
-
     const handleSubmit = (e) => {
         e.preventDefault()
         login({user: {...form}})
@@ -35,9 +33,7 @@ const LoginForm = ({ user,  login, history }) => {
             password: ""
         })
         history.push("/notes")
-
     } 
-
 
     return (
         user ? <Redirect to='/notes' /> :
@@ -76,9 +72,6 @@ const LoginForm = ({ user,  login, history }) => {
           </Message>
         </Grid.Column>
       </Grid>
-
-
-
     )
 }
 

@@ -17,7 +17,6 @@ const EditNoteForm = ({ user, activeNote, editNote, history }) => {
             ...form,            
             [e.target.name]: e.target.value
         })
-        console.log(form)
     }
 
     const handleSubmit = (e) => {

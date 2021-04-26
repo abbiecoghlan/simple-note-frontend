@@ -73,10 +73,8 @@ const mapStateToProps = (state) => {
       user: state.user,
       notes: state.notes,
       filter: state.filter
-    
      }
   }
   
-
 
 export default connect(mapStateToProps, { searchByTerm, logOut })(NavBar)
