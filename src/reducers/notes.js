@@ -13,7 +13,7 @@ const notesReducer = (state = [], action) => {
            })
         case "DELETE_NOTE":
             return state.filter(note => note.id !== action.id)
-      default:
+        default:
         return state;
     }
   };

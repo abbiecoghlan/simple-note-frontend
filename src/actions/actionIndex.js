@@ -27,7 +27,6 @@ export const createUser = (user) => {
                 history.push('/notes')               
                 }
             })
-
     }
 }
 

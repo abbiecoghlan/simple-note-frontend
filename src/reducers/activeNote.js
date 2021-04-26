@@ -6,8 +6,8 @@ const activeNoteReducer = (state = null, action) => {
             return action.note
         case "DELETE_NOTE":
             return null
-      default:
-        return state;
+        default:
+            return state;
     }
   };
   export default activeNoteReducer;
