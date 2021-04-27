@@ -62,7 +62,6 @@ const EditNoteForm = ({ user, activeNote, editNote, history }) => {
             content='Save Changes'
             />
         </Form>
-
         </>
     )
 }
