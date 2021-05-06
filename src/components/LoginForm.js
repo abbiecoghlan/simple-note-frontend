@@ -13,8 +13,6 @@ const LoginForm = ({ user,  login, history }) => {
     // }, [])
   
 
-
-
     const [form, setForm] = useState({username:"", password:""})
 
     const handleChange = (e) => {
