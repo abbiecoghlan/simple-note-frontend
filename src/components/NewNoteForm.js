@@ -39,7 +39,7 @@ const NewNoteForm = ({user, activeNote, history, newNote}) => {
                 name='title'
                 control={Input}
                 label='Title'
-                placeholder="A new title"
+                placeholder="Title"
                 value={form.title}
                 onChange={(e) => handleChange(e)}/>
             </Form.Group>
