@@ -23,8 +23,8 @@ const NoteShow = ({activeNote, removeNote, history}) => {
 
     const sendEmail = (e) => {
       emailjs.send("service_5cqt7la","template_b7i6xvf",{
-        title: "title",
-        body: "content",
+        title: activeNote.title,
+        body: activeNote.content,
         userEmail: "abbie.coghlan@gmail.com",
         }, 'user_Iv3LAnysWXekgj7GkPhCJ');
 
