@@ -24,7 +24,7 @@ const Note = ({note, setNote}) => {
           </Card.Content>
           <Card.Content extra>
             <Link to={`/notes/${note.id}`}>
-            <Button onClick={(e) => handleClick(e)} basic color='violet'>
+            <Button onClick={(e) => handleClick(e)} color='violet'>
             View Note
             </Button>
             </Link>

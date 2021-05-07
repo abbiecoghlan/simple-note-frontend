@@ -32,7 +32,7 @@ const NewNoteForm = ({user, activeNote, history, newNote}) => {
     return (
         <>
         <NavBar></NavBar>
-        <Form onSubmit={(e)=> handleSubmit(e)}>
+        <Form onSubmit={(e)=> handleSubmit(e)} style={{ maxWidth: "75%", position: "static", margin: "auto" }} >
             <Form.Group widths='equal'>
             <Form.Field
                 id='form-input-control-first-name'
@@ -45,6 +45,7 @@ const NewNoteForm = ({user, activeNote, history, newNote}) => {
             </Form.Group>
 
             <Form.Field
+            style={{ minHeight: 200 }}
             id='form-textarea-control-opinion'
             control={TextArea}
             label='Content'
@@ -57,9 +58,12 @@ const NewNoteForm = ({user, activeNote, history, newNote}) => {
             <Form.Field
             id='form-button-control-public'
             control={Button}
-            content='Save Changes'
+            color='violet'
+            content='Save'
             />
         </Form>
+        <br></br>
+        <Button onClick={() => history.push("/notes")} color="violet" >Discard</Button>
         </>
     )
 

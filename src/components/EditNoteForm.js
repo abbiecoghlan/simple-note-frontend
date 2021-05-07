@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Button, Form, Input, TextArea } from 'semantic-ui-react'
+import { Button, Icon, Form, Input, TextArea } from 'semantic-ui-react'
 import NavBar from './NavBar';
 import { useState } from 'react'
 import { editNote } from '../actions/actionIndex'
@@ -60,9 +60,16 @@ const EditNoteForm = ({ user, activeNote, editNote, history }) => {
             <Form.Field
             id='form-button-control-public'
             control={Button}
+            color='violet'
             content='Save Changes'
-            />
+            /> 
+                       
         </Form>
+        <br></br>
+        <Button onClick={() => history.push("/notes")} color="violet" >Discard Changes</Button>
+                     
+
+            
         </>
     )
 }

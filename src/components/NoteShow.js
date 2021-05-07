@@ -32,20 +32,20 @@ const NoteShow = ({activeNote, removeNote, history}) => {
           <Card inverted fluid color={'violet'}  >
             <Card.Content>
               <Card.Header>{activeNote.title}</Card.Header>
-              <Card.Description> {activeNote.content} <strong></strong></Card.Description>
+              <Card.Description> {activeNote.content} </Card.Description>
             </Card.Content>
             <Card.Content extra>
-            <Button basic color='violet'>
+            <Button color='violet'>
               <Icon name='send' />
                 Email Note
               </Button>
 
               <Link to={`/notes/edit/${activeNote.id}`}>       
-              <Button basic color='violet'>
+              <Button color='violet'>
               <Icon name='edit' /> Edit Note
               </Button>
               </Link>
-              <Button onClick={(e) => handleDelete(e)} basic color='violet'>
+              <Button onClick={(e) => handleDelete(e)} color='violet'>
               <Icon name='trash' />
                 Delete Note
               </Button>
