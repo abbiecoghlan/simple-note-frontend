@@ -39,7 +39,7 @@ const mapStateToProps = (state) => {
     return {
       user: state.user,
       notes: state.notes.filter(note => {
-        return   (note.title.includes(state.filter) || note.content.includes(state.filter))
+        return   (note.title.toLowerCase().includes(state.filter.toLowerCase()) || note.content.toLowerCase().includes(state.filter.toLowerCase()))
       }) 
     }
   }
