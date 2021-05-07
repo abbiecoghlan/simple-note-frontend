@@ -28,7 +28,7 @@ const NotesContainer = ({ user, notes, history }) => {
     return (
         <>
           <NavBar/>
-          <Button onClick={}  basic color='violet'> Create New Note </Button>
+          <Button onClick={() => history.push("/notes/new")}  basic color='violet'> Create New Note </Button>
           <Card.Group itemsPerRow={2} >
             {noteCards}      
           </Card.Group>

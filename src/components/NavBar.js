@@ -15,23 +15,17 @@ const NavBar = ({user, filter, searchByTerm, logOut}) => {
      const id = { user }
 
     const handleChange = (e) => {
-        console.log(filter)
         searchByTerm(e.target.value)
     }
 
     const handleClick = (e) => {
-        console.log("you clicked")
         history.push('/notes')
     }
 
     const handleLogOut = (e) => {
         //update state to remove user
-
         // redirect to login page
-        console.log(user)
-        debugger
         logOut()
-        console.log(user)
         history.push('/login')
       
     }
