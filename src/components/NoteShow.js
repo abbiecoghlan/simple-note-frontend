@@ -22,6 +22,11 @@ const NoteShow = ({activeNote, removeNote, history}) => {
     }
 
     const sendEmail = (e) => {
+      emailjs.send("service_5cqt7la","template_b7i6xvf",{
+        title: "title",
+        body: "content",
+        userEmail: "abbie.coghlan@gmail.com",
+        }, 'user_Iv3LAnysWXekgj7GkPhCJ');
 
     }
    
@@ -35,7 +40,7 @@ const NoteShow = ({activeNote, removeNote, history}) => {
               <Card.Description> {activeNote.content} </Card.Description>
             </Card.Content>
             <Card.Content extra>
-            <Button color='violet'>
+            <Button onClick={() => sendEmail()} color='violet'>
               <Icon name='send' />
                 Email Note
               </Button>
