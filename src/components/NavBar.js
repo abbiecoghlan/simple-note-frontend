@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { BrowserRouter, Link } from 'react-router-dom';
-import { Input, Menu } from 'semantic-ui-react'
+import { BrowserRouter, Link, NavLink } from 'react-router-dom';
+import { Input, Menu, Button, Icon } from 'semantic-ui-react'
 // import NotesContainer from './NotesContainer';
 import { useHistory } from "react-router";
 import { useState } from "react";
@@ -23,8 +23,9 @@ const NavBar = ({user, filter, searchByTerm, logOut}) => {
     }
 
     const handleLogOut = (e) => {
-        //update state to remove user
-        // redirect to login page
+        //update state to remove user, remove token, and redirect to login page
+        const token = localStorage.getItem("token")
+        window.localStorage.removeItem("token")
         logOut()
         history.push('/login')
       
@@ -33,16 +34,32 @@ const NavBar = ({user, filter, searchByTerm, logOut}) => {
     return (
 
         <Menu inverted>
-      
-        <Link to="/notes">
+          <Menu.Item as={NavLink} exact to={`/home`} size='massive' onClick={handleClick}>
+            <Icon name='home' />             
+                Home     
+            </Menu.Item>
+
+            <Menu.Item as={NavLink} exact to={`/notes`} size='massive' onClick={handleClick}>
+            <Icon name='sticky note' />             
+                My Notes     
+            </Menu.Item>
+
+            <Menu.Item as={NavLink} exact to={`/notes/new`} size='massive' onClick={handleClick}>
+            <Icon name='plus' />             
+                New Note     
+            </Menu.Item>
+
+        {/* <Link to="/notes">
             <Menu.Item
           name='My notes'/>
         </Link>
 
+
+
         <Link to="/notes/new">
             <Menu.Item
           name='New Note'/>
-        </Link>
+        </Link> */}
 
         
             <Menu.Menu position='right'>
