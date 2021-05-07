@@ -47,7 +47,6 @@ export const login = (user) => {
                 {
                 if (!data.user) {
                     //data.message alert
-                    console.log("wronginfo")
                     alert("Wrong username or password. Please check your credentials and try again.")
                 } else {
                 
@@ -55,9 +54,11 @@ export const login = (user) => {
                 const notes = data.user.notes
                 dispatch({type:"LOGIN_USER", currentUser})
                 dispatch({type:"FETCH_NOTES", notes})
+                localStorage.setItem("token", data.jwt)
+                debugger
                 history.push('/notes')               
 
-                // localStorage.setItem("token", data.user.jwt)
+
                 }
             })
 
