@@ -22,14 +22,12 @@ const NoteShow = ({activeNote, removeNote, history, user}) => {
     }
 
     const sendEmail = (e) => {
-
-      console.log("you want to send an email")
-
-      // emailjs.send("service_5cqt7la","template_b7i6xvf",{
-      //   title: activeNote.title,
-      //   body: activeNote.content,
-      //   userEmail: user.email,
-      //   }, 'user_Iv3LAnysWXekgj7GkPhCJ');
+      
+      emailjs.send("service_5cqt7la","template_b7i6xvf",{
+        title: activeNote.title,
+        body: activeNote.content,
+        userEmail: user.email,
+        }, 'user_Iv3LAnysWXekgj7GkPhCJ');
 
     }
    
