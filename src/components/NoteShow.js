@@ -1,11 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Button, Card, Form, Segment } from 'semantic-ui-react'
+import { Button, Card, Form, Segment, Icon } from 'semantic-ui-react'
 import NavBar from './NavBar';
 import { useState } from 'react'
 import { Link } from 'react-router-dom';
 import { removeNote } from '../actions/actionIndex'
-
+import emailjs from "emailjs-com"
 
 const NoteShow = ({activeNote, removeNote, history}) => {
 
@@ -20,6 +20,10 @@ const NoteShow = ({activeNote, removeNote, history}) => {
         history.push("/notes")
       }
     }
+
+    const sendEmail = (e) => {
+
+    }
    
     return (
         <>
@@ -31,12 +35,18 @@ const NoteShow = ({activeNote, removeNote, history}) => {
               <Card.Description> {activeNote.content} <strong></strong></Card.Description>
             </Card.Content>
             <Card.Content extra>
+            <Button basic color='violet'>
+              <Icon name='send' />
+                Email Note
+              </Button>
+
               <Link to={`/notes/edit/${activeNote.id}`}>       
               <Button basic color='violet'>
-                Edit Note
+              <Icon name='edit' /> Edit Note
               </Button>
               </Link>
               <Button onClick={(e) => handleDelete(e)} basic color='violet'>
+              <Icon name='trash' />
                 Delete Note
               </Button>
             </Card.Content>

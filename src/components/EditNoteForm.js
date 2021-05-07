@@ -34,7 +34,7 @@ const EditNoteForm = ({ user, activeNote, editNote, history }) => {
     return (
         <>
         <NavBar></NavBar>
-        <Form onSubmit={(e)=> handleSubmit(e)}>
+        <Form onSubmit={(e)=> handleSubmit(e)} style={{ maxWidth: "75%", position: "static", margin: "auto" }} >
             <Form.Group widths='equal'>
             <Form.Field
                 id='form-input-control-first-name'
@@ -48,6 +48,7 @@ const EditNoteForm = ({ user, activeNote, editNote, history }) => {
 
             </Form.Group>
             <Form.Field
+            style={{ minHeight: 200 }}
             id='form-textarea-control-opinion'
             control={TextArea}
             label='Content'
