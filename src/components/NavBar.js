@@ -49,18 +49,6 @@ const NavBar = ({user, filter, searchByTerm, logOut}) => {
                 New Note     
             </Menu.Item>
 
-        {/* <Link to="/notes">
-            <Menu.Item
-          name='My notes'/>
-        </Link>
-
-
-
-        <Link to="/notes/new">
-            <Menu.Item
-          name='New Note'/>
-        </Link> */}
-
         
             <Menu.Menu position='right'>
           <Menu.Item >
