@@ -3,13 +3,15 @@ import { connect } from 'react-redux';
 // import notesReducer from '../reducers/notes';
 import { Button, Card, Image, Grid, Segment } from 'semantic-ui-react'
 import { Link } from 'react-router-dom';
-import { setNote } from '../actions/actionIndex'
+import { setNote, searchByTerm } from '../actions/actionIndex'
 
 
-const Note = ({note, setNote}) => {
+
+const Note = ({note, setNote, searchByTerm}) => {
 
     const handleClick = (e) => {
         setNote(note)
+        searchByTerm("")
     }
 
 
@@ -41,7 +43,7 @@ const mapStateToProps = (state) => {
   }
   
 
-export default connect(mapStateToProps, { setNote })(Note)
+export default connect(mapStateToProps, { setNote, searchByTerm })(Note)
 
 
 
