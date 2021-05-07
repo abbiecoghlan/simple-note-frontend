@@ -17,6 +17,20 @@ const App = ({user}) => {
 const history = useHistory()
 
   useEffect(() => {
+    const token = localStorage.getItem("token")
+    if (token) {
+      // tokenLogin(token)
+      if (!user) {
+        console.log("do a token login")
+        debugger
+      } else {
+        // if there is a token and a user and we have not yet loaded, fetch the progress
+        console.log("are there notes?")
+        debugger
+      }
+    }
+  })
+  useEffect(() => {
     if (!user && history.location.pathname !== "/signup"){
       history.push('./login')
     }  

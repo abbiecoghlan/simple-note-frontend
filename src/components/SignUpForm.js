@@ -24,7 +24,7 @@ const SignUpForm = ({ user,  createUser, history }) => {
             username: "",
             password: ""
           })
-        history.push("/notes")
+        // history.push("/notes")
     } 
 
 

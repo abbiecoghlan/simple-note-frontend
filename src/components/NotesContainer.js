@@ -4,7 +4,7 @@ import NavBar from './NavBar';
 import Note from './Note'
 // import { removeNote, viewNote, editNote } from '../actions/actionIndex'
 import { useEffect } from 'react'
-import {Card} from 'semantic-ui-react'
+import {Button, Card} from 'semantic-ui-react'
 
 
 const NotesContainer = ({ user, notes, history }) => {
@@ -28,6 +28,7 @@ const NotesContainer = ({ user, notes, history }) => {
     return (
         <>
           <NavBar/>
+          <Button onClick={}  basic color='violet'> Create New Note </Button>
           <Card.Group itemsPerRow={2} >
             {noteCards}      
           </Card.Group>

@@ -22,8 +22,8 @@ export const createUser = (user) => {
                 const currentUser = data.user
                 const notes = data.user.notes
                 dispatch({type:"LOGIN_USER", currentUser})
-                dispatch({type:"FETCH_NOTES", notes})
-                localStorage.setItem("token", data.user.jwt)
+                dispatch({type:"FETCH_NOTES", notes}) 
+                localStorage.setItem("token", data.jwt)
                 history.push('/notes')               
                 }
             })
@@ -55,13 +55,9 @@ export const login = (user) => {
                 dispatch({type:"LOGIN_USER", currentUser})
                 dispatch({type:"FETCH_NOTES", notes})
                 localStorage.setItem("token", data.jwt)
-                debugger
                 history.push('/notes')               
-
-
                 }
             })
-
     }
 }
 
