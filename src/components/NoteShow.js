@@ -28,8 +28,8 @@ const NoteShow = ({activeNote, removeNote, history}) => {
     return (
         <>
         <NavBar></NavBar>
-        <Segment inverted>
-          <Card inverted fluid color={'violet'}>
+        <Segment inverted style={{ maxWidth: "75%", position: "static", margin: "auto" }} >
+          <Card inverted fluid color={'violet'}  >
             <Card.Content>
               <Card.Header>{activeNote.title}</Card.Header>
               <Card.Description> {activeNote.content} <strong></strong></Card.Description>
