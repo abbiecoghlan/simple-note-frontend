@@ -1,13 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Button, Card, Form, Segment, Icon } from 'semantic-ui-react'
+import { Button, Card, Form, Segment, Icon, Popup } from 'semantic-ui-react'
 import NavBar from './NavBar';
 import { useState } from 'react'
 import { Link } from 'react-router-dom';
 import { removeNote } from '../actions/actionIndex'
 import emailjs from "emailjs-com"
 
-const NoteShow = ({activeNote, removeNote, history}) => {
+const NoteShow = ({activeNote, removeNote, history, user}) => {
 
 
     const [form, setForm] = useState({title:"", content:"", archived: false, })
@@ -22,11 +22,14 @@ const NoteShow = ({activeNote, removeNote, history}) => {
     }
 
     const sendEmail = (e) => {
-      emailjs.send("service_5cqt7la","template_b7i6xvf",{
-        title: activeNote.title,
-        body: activeNote.content,
-        userEmail: "abbie.coghlan@gmail.com",
-        }, 'user_Iv3LAnysWXekgj7GkPhCJ');
+
+      console.log("you want to send an email")
+
+      // emailjs.send("service_5cqt7la","template_b7i6xvf",{
+      //   title: activeNote.title,
+      //   body: activeNote.content,
+      //   userEmail: user.email,
+      //   }, 'user_Iv3LAnysWXekgj7GkPhCJ');
 
     }
    
@@ -40,16 +43,22 @@ const NoteShow = ({activeNote, removeNote, history}) => {
               <Card.Description> {activeNote.content} </Card.Description>
             </Card.Content>
             <Card.Content extra>
-            <Button onClick={() => sendEmail()} color='violet'>
-              <Icon name='send' />
-                Email Note
-              </Button>
+
+            <Popup
+            trigger={<Button onClick={() => sendEmail()} color='violet'><Icon name='send' />Email Note</Button> }
+            on='click'
+            content={`Your note has been emailed to ${user.email}`}
+            inverted
+            />
+
+
 
               <Link to={`/notes/edit/${activeNote.id}`}>       
               <Button color='violet'>
               <Icon name='edit' /> Edit Note
               </Button>
               </Link>
+             
               <Button onClick={(e) => handleDelete(e)} color='violet'>
               <Icon name='trash' />
                 Delete Note
@@ -64,7 +73,8 @@ const NoteShow = ({activeNote, removeNote, history}) => {
 
 const mapStateToProps = (state) => {
   return {
-    activeNote: state.activeNote
+    activeNote: state.activeNote,
+    user: state.user
    }
 } 
 

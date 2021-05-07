@@ -16,7 +16,6 @@ export const createUser = (user) => {
                 {
                 if (!data.user) {
                     //data.message alert
-                    console.log("error")
                     alert("Error creating user")
                 } else {            
                 const currentUser = data.user
@@ -55,6 +54,8 @@ export const login = (user) => {
                 dispatch({type:"LOGIN_USER", currentUser})
                 dispatch({type:"FETCH_NOTES", notes})
                 localStorage.setItem("token", data.jwt)
+
+                console.table(currentUser)
                 history.push('/notes')               
                 }
             })

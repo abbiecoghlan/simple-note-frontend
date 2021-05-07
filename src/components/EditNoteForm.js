@@ -66,9 +66,9 @@ const EditNoteForm = ({ user, activeNote, editNote, history }) => {
                        
         </Form>
         <br></br>
-        <Button onClick={() => history.push("/notes")} color="violet" >Discard Changes</Button>
+        <Button onClick={() => history.push(`/notes/${activeNote.id}`)} color="violet" >Discard Changes</Button>
                      
-
+        
             
         </>
     )

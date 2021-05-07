@@ -7,7 +7,7 @@ import { Redirect } from "react-router-dom"
    
 const SignUpForm = ({ user,  createUser, history }) => {
 
-    const [form, setForm] = useState({username:"", password:""})
+    const [form, setForm] = useState({username:"", password:"", email: ""})
 
     const handleChange = (e) => {
         setForm({
@@ -22,7 +22,8 @@ const SignUpForm = ({ user,  createUser, history }) => {
         createUser({user: {...form}})
         setForm({
             username: "",
-            password: ""
+            password: "", 
+            email: ""
           })
         // history.push("/notes")
     } 
@@ -40,10 +41,18 @@ const SignUpForm = ({ user,  createUser, history }) => {
         </Header>
         <Form onSubmit={(e) => handleSubmit(e)} inverted size='large'>
             <Segment inverted stacked> 
+
+            <Form.Input fluid icon='mail' iconPosition='left' placeholder='Email'                 
+                name="email"
+                value={form.email}
+                onChange={(e) => handleChange(e)}/>
+                
               <Form.Input fluid icon='user' iconPosition='left' placeholder='Username'                 
                 name="username"
                 value={form.username}
                 onChange={(e) => handleChange(e)}/>
+
+
               
               <Form.Input
                 fluid
