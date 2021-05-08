@@ -19,7 +19,7 @@ const history = useHistory()
 
   useEffect(() => {
     const token = localStorage.getItem("token")
-    debugger
+
     if (token) {
       if (!user) {
         console.log("do a token login")
