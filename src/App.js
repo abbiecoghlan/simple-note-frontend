@@ -19,20 +19,17 @@ const history = useHistory()
 
   useEffect(() => {
     const token = localStorage.getItem("token")
-
     if (token) {
       if (!user) {
-        console.log("do a token login")
         tokenLogin(token)
-        debugger
       } 
     }
   })
+
   useEffect(() => {
     if (!user && history.location.pathname !== "/signup"){
       history.push('./login')
     }  
-
   }, [])
 
 

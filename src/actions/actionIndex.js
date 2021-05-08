@@ -76,16 +76,14 @@ export const tokenLogin = (token) => {
             .then(r => r.json())
             .then(data => 
                 {
-                    debugger
                 if (!data.user) {
                     console.log("token login didnt work")
                 } else {
-                const currentUser = data.user
-                const notes = data.user.notes
-                dispatch({type:"LOGIN_USER", currentUser})
-                dispatch({type:"FETCH_NOTES", notes})
-                console.table(currentUser)
-                history.push('/notes')               
+                    const currentUser = data.user
+                    const notes = data.user.notes
+                    dispatch({type:"LOGIN_USER", currentUser})
+                    dispatch({type:"FETCH_NOTES", notes})
+                    history.push('/notes')               
                 }
             })
     }
