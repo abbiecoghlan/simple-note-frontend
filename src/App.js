@@ -9,25 +9,23 @@ import NewNoteForm from './components/NewNoteForm'
 import NotesContainer from './components/NotesContainer';
 import { useHistory } from "react-router";
 import SignUpForm from "./components/SignUpForm"
+import { tokenLogin } from './actions/actionIndex'
 
 
 
-const App = ({user}) => {
+const App = ({user, tokenLogin}) => {
 
 const history = useHistory()
 
   useEffect(() => {
     const token = localStorage.getItem("token")
+    debugger
     if (token) {
-      // tokenLogin(token)
       if (!user) {
         console.log("do a token login")
+        tokenLogin(token)
         debugger
-      } else {
-        // if there is a token and a user and we have not yet loaded, fetch the progress
-        console.log("are there notes?")
-        debugger
-      }
+      } 
     }
   })
   useEffect(() => {
@@ -66,4 +64,4 @@ const mapStateToProps = (state) => {
    }
 }
 
-export default connect(mapStateToProps, null)(App);
+export default connect(mapStateToProps, { tokenLogin })(App);

@@ -63,6 +63,38 @@ export const login = (user) => {
 }
 
 
+export const tokenLogin = (token) => {
+    return (dispatch) => {
+        fetch('http://localhost:3000/tokenlogin', {
+            method: 'GET',
+            headers: {
+              'Content-Type': 'application/json',
+              Accept: 'application/json',
+              Authorization: `Bearer: ${token}`
+            },
+          })
+            .then(r => r.json())
+            .then(data => 
+                {
+                    debugger
+                if (!data.user) {
+                    console.log("token login didnt work")
+                } else {
+                const currentUser = data.user
+                const notes = data.user.notes
+                dispatch({type:"LOGIN_USER", currentUser})
+                dispatch({type:"FETCH_NOTES", notes})
+                console.table(currentUser)
+                history.push('/notes')               
+                }
+            })
+    }
+}
+
+
+
+
+
 export const searchByTerm = (term) => {
     return {type: "FILTER_BY_TERM", term: term}
 }
@@ -136,11 +168,6 @@ export const removeNote = (id) => {
 export const logOut = () => {
     return { type: "LOGOUT_USER"};
     }
-
-// export const viewNote = (id) => {
-
-//     }
-
 
 
 
