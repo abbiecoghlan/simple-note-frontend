@@ -9,29 +9,26 @@ import emailjs from "emailjs-com"
 
 const NoteShow = ({activeNote, removeNote, history, user}) => {
 
-
-    const [form, setForm] = useState({title:"", content:"", archived: false, })
+  const [form, setForm] = useState({title:"", content:"", archived: false, })
   
-    //todo: clean up alert 
-    const handleDelete = (e) => {
-      const confirm = window.confirm("Are you sure you want to delete this note?")
-      if (confirm) {
-        removeNote(activeNote.id)
-        history.push("/notes")
+  const handleDelete = (e) => {
+    const confirm = window.confirm("Are you sure you want to delete this note?")
+    if (confirm) {
+      removeNote(activeNote.id)
+      history.push("/notes")
       }
     }
 
-    const sendEmail = (e) => {
-      
-      emailjs.send("service_5cqt7la","template_b7i6xvf",{
-        title: activeNote.title,
-        body: activeNote.content,
-        userEmail: user.email,
-        }, 'user_Iv3LAnysWXekgj7GkPhCJ');
+  const sendEmail = (e) => {
+    emailjs.send("service_5cqt7la","template_b7i6xvf",{
+      title: activeNote.title,
+      body: activeNote.content,
+      userEmail: user.email,
+      }, 'user_Iv3LAnysWXekgj7GkPhCJ');
 
-    }
-   
-    return (
+  }   
+  
+  return (
         <>
         <NavBar></NavBar>
         <Segment inverted style={{ maxWidth: "75%", position: "static", margin: "auto" }} >
