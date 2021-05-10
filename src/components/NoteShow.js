@@ -81,7 +81,6 @@ const NoteShow = ({activeNote, removeNote, history, user, setNote}) => {
 const mapStateToProps = (state) => {
   return {
     activeNote: state.activeNote,
-
     user: state.user
    }
 } 

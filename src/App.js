@@ -16,22 +16,11 @@ const App = ({user, tokenLogin, activeNote}) => {
 
 const history = useHistory()
 
-const { id } = useParams()
-
 useEffect(() => {   
     const token = localStorage.getItem("token")
     if (token) {
       if (!user) {
         tokenLogin(token)
-        
-       } else {
-
-          if (!activeNote) {
-
-            debugger
-            // history.push("/notes")
-          
-        }
        } 
       } 
   }, [user, activeNote])
