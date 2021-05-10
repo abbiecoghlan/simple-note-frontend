@@ -13,18 +13,25 @@ import { tokenLogin } from './actions/actionIndex'
 
 
 
-const App = ({user, tokenLogin}) => {
+const App = ({user, tokenLogin, activeNote}) => {
 
 const history = useHistory()
 
-  useEffect(() => {
+  useEffect(() => {   
     const token = localStorage.getItem("token")
     if (token) {
       if (!user) {
         tokenLogin(token)
+        
+       } else {
+        debugger
+          if (!activeNote) {
+            history.push("/notes")
+          
+        }
+       } 
       } 
-    }
-  })
+  }, [user, activeNote])
 
   useEffect(() => {
     if (!user && history.location.pathname !== "/signup"){
@@ -57,7 +64,8 @@ const history = useHistory()
 const mapStateToProps = (state) => {
   return {
     user: state.user,
-    notes: state.notes
+    notes: state.notes,
+    activeNote: state.activeNote
    }
 }
 

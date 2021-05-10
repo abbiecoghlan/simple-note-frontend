@@ -31,7 +31,7 @@ const NoteShow = ({activeNote, removeNote, history, user}) => {
   return (
         <>
         <NavBar></NavBar>
-        <Segment inverted style={{ maxWidth: "75%", position: "static", margin: "auto" }} >
+        {activeNote !== null ? <Segment inverted style={{ maxWidth: "75%", position: "static", margin: "auto" }} >
           <Card inverted fluid color={'violet'}  >
             <Card.Content>
               <Card.Header>{activeNote.title}</Card.Header>
@@ -46,8 +46,6 @@ const NoteShow = ({activeNote, removeNote, history, user}) => {
             inverted
             />
 
-
-
               <Link to={`/notes/edit/${activeNote.id}`}>       
               <Button color='violet'>
               <Icon name='edit' /> Edit Note
@@ -60,7 +58,7 @@ const NoteShow = ({activeNote, removeNote, history, user}) => {
               </Button>
             </Card.Content>
           </Card>
-        </Segment>
+        </Segment> : null }
         </>
     )
 }

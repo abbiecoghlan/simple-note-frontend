@@ -12,7 +12,7 @@ const NavBar = ({user, filter, searchByTerm, logOut}) => {
     const history = useHistory()
     const [searchInput, setSearchInput] = useState("")
 
-     const id = { user }
+    const id = { user }
 
     const handleChange = (e) => {
         searchByTerm(e.target.value)
