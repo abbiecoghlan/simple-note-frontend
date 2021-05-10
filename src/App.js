@@ -1,5 +1,5 @@
 import './App.css';
-import { Switch, Route, Redirect } from 'react-router-dom'
+import { Switch, Route, Redirect, useParams } from 'react-router-dom'
 import { useEffect } from 'react';
 import LoginForm from './components/LoginForm'
 import NoteShow from './components/NoteShow'
@@ -12,21 +12,24 @@ import SignUpForm from "./components/SignUpForm"
 import { tokenLogin } from './actions/actionIndex'
 
 
-
 const App = ({user, tokenLogin, activeNote}) => {
 
 const history = useHistory()
 
-  useEffect(() => {   
+const { id } = useParams()
+
+useEffect(() => {   
     const token = localStorage.getItem("token")
     if (token) {
       if (!user) {
         tokenLogin(token)
         
        } else {
-        debugger
+
           if (!activeNote) {
-            history.push("/notes")
+
+            debugger
+            // history.push("/notes")
           
         }
        } 
@@ -34,7 +37,8 @@ const history = useHistory()
   }, [user, activeNote])
 
   useEffect(() => {
-    if (!user && history.location.pathname !== "/signup"){
+    const token = localStorage.getItem("token")
+    if (!user && !token && history.location.pathname !== "/signup"){
       history.push('./login')
     }  
   }, [])

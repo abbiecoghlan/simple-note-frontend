@@ -2,15 +2,29 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Button, Card, Form, Segment, Icon, Popup } from 'semantic-ui-react'
 import NavBar from './NavBar';
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
-import { removeNote } from '../actions/actionIndex'
+import { removeNote, setNote } from '../actions/actionIndex'
 import emailjs from "emailjs-com"
 
-const NoteShow = ({activeNote, removeNote, history, user}) => {
+
+
+const NoteShow = ({activeNote, removeNote, history, user, setNote}) => {
 
   const [form, setForm] = useState({title:"", content:"", archived: false, })
+
   
+  useEffect(() => {   
+
+    if (user && !activeNote) {
+      const noteId = history.location.pathname.substring(history.location.pathname.lastIndexOf('/') + 1)
+      const note = user.notes.find(note => note.id == noteId)
+      setNote(note)
+    }        
+  }, [user, activeNote])
+
+
+
   const handleDelete = (e) => {
     const confirm = window.confirm("Are you sure you want to delete this note?")
     if (confirm) {
@@ -67,8 +81,9 @@ const NoteShow = ({activeNote, removeNote, history, user}) => {
 const mapStateToProps = (state) => {
   return {
     activeNote: state.activeNote,
+
     user: state.user
    }
 } 
 
-export default connect(mapStateToProps, { removeNote })(NoteShow)
+export default connect(mapStateToProps, { removeNote, setNote })(NoteShow)
